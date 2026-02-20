@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael's Projects | GitHub Pages Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img id="avatar" class="avatar" src="" alt="GitHub Avatar">
+            <div class="header-text">
+                <h1 id="username">michaelcodeshenanigans</h1>
+                <p class="tagline">GitHub Pages Projects</p>
+            </div>
+        </header>
+
+        <main class="projects-grid">
+            <article class="project-card">
+                <h2>📂 pages-dir</h2>
+                <p>GitHub Pages directory hub — you're looking at it!</p>
+                <div class="card-buttons">
+                    <a href="https://michaelcodeshenanigans.github.io/pages-dir/" class="btn btn-primary">Live Site</a>
+                    <a href="https://github.com/michaelcodeshenanigans/pages-dir" class="btn btn-secondary">GitHub</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <h2>🎥 vdo.ninja</h2>
+                <p>VDO.Ninja — Scalable, free, open-source video chat and screen sharing.</p>
+                <div class="card-buttons">
+                    <a href="https://michaelcodeshenanigans.github.io/vdo.ninja/" class="btn btn-primary">Live Site</a>
+                    <a href="https://github.com/michaelcodeshenanigans/vdo.ninja" class="btn btn-secondary">GitHub</a>
+                </div>
+            </article>
+        </main>
+
+        <footer class="footer">
+            <p>Built with ☕ and 🦊</p>
+        </footer>
+    </div>
+
+    <script>
+        // Fetch GitHub user info for avatar
+        fetch('https://api.github.com/users/michaelcodeshenanigans')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('avatar').src = data.avatar_url;
+                if (data.name) {
+                    document.getElementById('username').textContent = data.name;
+                }
+            })
+            .catch(err => {
+                // Fallback - just use default GitHub avatar
+                document.getElementById('avatar').src = 'https://github.com/michaelcodeshenanigans.png';
+            });
+    </script>
+</body>
+</html>
